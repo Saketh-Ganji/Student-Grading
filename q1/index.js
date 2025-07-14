@@ -31,7 +31,7 @@ app.post('/students',(req,res)=>{
     res.status(201).json(newStudent);
 });
 
-app.put('/students/:id',(req,res)=>{
+app.put('/student/:id',(req,res)=>{
     const id=parseInt(req.params.id);
     const student=students.find(s=>s.id===id);
     if(!student) return res.status(404).json({message:"Student not found"});
@@ -43,7 +43,7 @@ app.put('/students/:id',(req,res)=>{
     }
     res.json(student);
 });
-app.delete('/students/:id',(req,res)=>{
+app.delete('/student/:id',(req,res)=>{
     const id=parseInt(req.params.id);
     students=students.filter(s=>s.id !== id);
     res.json({message:"Deleted"});
